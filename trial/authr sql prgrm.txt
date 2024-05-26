@@ -1,0 +1,28 @@
+create or replace function fgrade(sname IN varchar2) return varchar
+IS
+g varchar(1);
+mk number(5);
+Begin
+select mark into mk from stu where name=sname;
+if mk>90 then
+g:='S';
+dbms_output.put_line('Grade:'||g);
+else if mk>80 then
+g:='A';
+dbms_output.put_line('Grade:'||g);
+else if mk>70 then
+g:='B';
+dbms_output.put_line('Grade:'||g);
+else if mk>60 then
+g:='C';
+dbms_output.put_line('Grade:'||g);
+else
+g:='F';
+dbms_output.put_line('Grade:'||g);
+end if;
+end if;
+end if;
+end if;
+return g;
+End fgrade;
+/
